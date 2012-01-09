@@ -3,5 +3,6 @@ name 'ZZZ-Hello-World';
 version '1.0';
  
 requires 'Plack';
+requires 'Starman';
  
 WriteAll;
