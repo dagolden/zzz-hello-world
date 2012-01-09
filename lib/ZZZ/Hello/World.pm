@@ -3,32 +3,29 @@ use strict;
 use warnings;
 
 package ZZZ::Hello::World;
-# ABSTRACT: No abstract given for ZZZ::Hello::World
-# VERSION
+our $VERSION = "1.0";
 
-# Dependencies
-use autodie 2.00;
+use Plack::Request;
+
+sub run_psgi {
+  my $self = shift;
+  my $req = Plack::Request->new(shift);
+  my $res = $req->new_response(200);
+  $res->content_type('text/html');
+  $res->body("Hello World");
+  return $res->finalize;
+}
 
 1;
 
-=for Pod::Coverage method_names_here
+=head1 NAME
 
-=head1 SYNOPSIS
-
-  use ZZZ::Hello::World;
+ZZZ::Hello::World -- a demo Hello World app
 
 =head1 DESCRIPTION
 
-This module might be cool, but you'd never know it from the lack
-of documentation.
-
-=head1 USAGE
-
-Good luck!
-
-=head1 SEE ALSO
-
-Maybe other modules do related things.
+This is a demo Hello World web app.  Nothing to see here.  These
+are not the droids you're looking for.  Move along.
 
 =cut
 
