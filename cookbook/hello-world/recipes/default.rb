@@ -21,31 +21,30 @@ include_recipe 'perlbrew'
 
 package 'git'
 
-perlbrew_perl "perl-5.14.2" do
-  action :install
-end
+perl_ver = node['hello-world']['perl_version']
 
-perlbrew_lib "perl-5.14.2@carton" do
-  action :create
-end
+perl_carton = "#{perl_ver}@carton"
+
+perlbrew_perl perl_ver
+
+perlbrew_lib perl_carton
 
 perlbrew_run "cpanm Carton" do
-  perlbrew "perl-5.14.2@carton"
+  perlbrew perl_carton
 end
 
 git "/opt/hello-world" do
   repository "git://github.com/dagolden/zzz-hello-world.git"
-  reference "v1.0"
-  action :sync
+  reference node['hello-world']['deploy_tag']
 end
 
 perlbrew_run "carton install" do
   cwd "/opt/hello-world"
-  perlbrew "perl-5.14.2@carton"
+  perlbrew perl_carton
 end
 
 perlbrew_run "carton exec -Ilib -- starman -D -p 80 app.psgi" do
   cwd "/opt/hello-world"
-  perlbrew "perl-5.14.2@carton"
+  perlbrew perl_carton
 end
 
