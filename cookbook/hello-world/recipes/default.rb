@@ -19,8 +19,6 @@
 
 include_recipe 'perlbrew'
 
-package 'git'
-
 perl_ver = node['hello-world']['perl_version']
 
 perl_carton = "#{perl_ver}@carton"
@@ -32,6 +30,8 @@ perlbrew_lib perl_carton
 perlbrew_run "cpanm Carton" do
   perlbrew perl_carton
 end
+
+package 'git'
 
 git "/opt/hello-world" do
   repository "git://github.com/dagolden/zzz-hello-world.git"
