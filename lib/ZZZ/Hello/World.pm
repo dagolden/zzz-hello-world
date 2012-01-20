@@ -13,10 +13,19 @@ sub run_psgi {
   my $res = $req->new_response(200);
   $res->content_type('text/html');
   $res->body(<<"HERE");
-Hello World (@{[scalar localtime]})
+<html>
+<head><title>Hello World</title</head>
+<body>
 
-This is Perl $].  My \@INC is:
-@{[join "\n", @INC]}
+<p>Hello World. It is @{[scalar localtime]}</p>
+
+<p>This is Perl $].  My \@INC is:</p>
+
+<ul>
+@{[map {"<li>$_</li>\n"} @INC]}
+</ul>
+</body>
+</html>
 HERE
   return $res->finalize;
 }
