@@ -14,7 +14,7 @@ sub run_psgi {
   $res->content_type('text/html');
   $res->body(<<"HERE");
 <html>
-<head><title>Hello World</title</head>
+<head><title>Hello World</title></head>
 <body>
 
 <p>Hello World. It is @{[scalar localtime]}</p>
