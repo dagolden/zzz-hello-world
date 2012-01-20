@@ -12,7 +12,12 @@ sub run_psgi {
   my $req = Plack::Request->new(shift);
   my $res = $req->new_response(200);
   $res->content_type('text/html');
-  $res->body("Hello World (@{[scalar localtime]})");
+  $res->body(<<"HERE");
+Hello World (@{[scalar localtime]})
+
+This is Perl $].  My \@INC is:
+@{[join "\n", @INC]}
+HERE
   return $res->finalize;
 }
 
