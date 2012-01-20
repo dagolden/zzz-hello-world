@@ -33,18 +33,22 @@ end
 
 package 'git'
 
-git "/opt/hello-world" do
-  repository "git://github.com/dagolden/zzz-hello-world.git"
+git node['hello-world']['deploy_dir'] do
+  repository node['hello-world']['deploy_repo']
   reference node['hello-world']['deploy_tag']
 end
 
 perlbrew_run "carton install" do
-  cwd "/opt/hello-world"
+  cwd node['hello-world']['deploy_dir']
   perlbrew perl_carton
 end
 
-perlbrew_run "carton exec -Ilib -- starman -D -p 80 app.psgi" do
-  cwd "/opt/hello-world"
+perlbrew_service "hello-world" do
   perlbrew perl_carton
+  command "carton exec -Ilib -- starman -p #{node['hello-world']['port']} app.psgi"
+  cwd node['hello-world']['deploy_dir']
+  user node['hello-world']['user']
+  group node['hello-world']['group']
+  environment {}
 end
 

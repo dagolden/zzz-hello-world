@@ -18,7 +18,16 @@
 # limitations under the License.
 #
 
-# Should be a legal perlbrew target
+# perlbrew to execute with (should be a legal perlbrew target)
 default['hello-world']['perl_version'] = 'perl-5.14.2'
-# Git reference, ideally a release tag
+
+# Install directory, repo and tag
+default['hello-world']['deploy_dir'] = '/opt/hello-world'
+default['hello-world']['deploy_repo'] = 'git://github.com/dagolden/zzz-hello-world.git'
 default['hello-world']['deploy_tag'] = 'v1.0'
+
+# Service user/group/port
+default['hello-world']['user'] = "nobody"
+default['hello-world']['group'] = "nogroup"
+default['hello-world']['port'] = 8080
+
