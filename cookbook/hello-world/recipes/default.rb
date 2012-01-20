@@ -40,6 +40,7 @@ end
 
 perlbrew_run "carton install" do
   cwd node['hello-world']['deploy_dir']
+  environment( { 'PERL_CARTON_PATH' => "local-#{perl_ver}" } )
   perlbrew perl_carton
 end
 
@@ -49,6 +50,6 @@ perlbrew_service "hello-world" do
   cwd node['hello-world']['deploy_dir']
   user node['hello-world']['user']
   group node['hello-world']['group']
-  environment {}
+  environment( { 'PERL_CARTON_PATH' => "local-#{perl_ver}" } )
 end
 
