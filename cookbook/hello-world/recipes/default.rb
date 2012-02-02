@@ -18,18 +18,7 @@
 #
 
 include_recipe 'perlbrew'
-
-perl_ver = node['hello-world']['perl_version']
-
-perl_carton = "#{perl_ver}@carton"
-
-perlbrew_perl perl_ver
-
-perlbrew_lib perl_carton
-
-perlbrew_run "cpanm Carton" do
-  perlbrew perl_carton
-end
+include_recipe 'carton'
 
 package 'git'
 
@@ -38,18 +27,12 @@ git node['hello-world']['deploy_dir'] do
   reference node['hello-world']['deploy_tag']
 end
 
-perlbrew_run "carton install" do
-  cwd node['hello-world']['deploy_dir']
-  environment( { 'PERL_CARTON_PATH' => "local-#{perl_ver}" } )
-  perlbrew perl_carton
-end
-
-perlbrew_service "hello-world" do
-  perlbrew perl_carton
-  command "carton exec -Ilib -- starman -p #{node['hello-world']['port']} app.psgi"
+carton_app "hello-world" do
+  perlbrew node['hello-world']['perl_version']
+  command "starman -p #{node['hello-world']['port']} app.psgi"
   cwd node['hello-world']['deploy_dir']
   user node['hello-world']['user']
   group node['hello-world']['group']
-  environment( { 'PERL_CARTON_PATH' => "local-#{perl_ver}" } )
+  action [:create, :start]
 end
 
