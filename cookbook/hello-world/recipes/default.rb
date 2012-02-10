@@ -17,7 +17,6 @@
 # limitations under the License.
 #
 
-include_recipe 'perlbrew'
 include_recipe 'carton'
 
 package 'git'
