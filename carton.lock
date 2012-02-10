@@ -1,7 +1,7 @@
 {
    "modules" : {
       "Class::Inspector" : {
-         "dist" : "Class-Inspector-1.25",
+         "dist" : "Class-Inspector-1.27",
          "module" : "Class::Inspector",
          "mymeta" : {
             "abstract" : "Get information about a class and its structure",
@@ -9,7 +9,7 @@
                "Adam Kennedy <adamk@cpan.org>"
             ],
             "dynamic_config" : 0,
-            "generated_by" : "Module::Install version 1.00, CPAN::Meta::Converter version 2.112621",
+            "generated_by" : "Module::Install version 1.04, CPAN::Meta::Converter version 2.112621",
             "license" : [
                "perl_5"
             ],
@@ -28,13 +28,13 @@
             "prereqs" : {
                "build" : {
                   "requires" : {
-                     "ExtUtils::MakeMaker" : "6.42",
+                     "ExtUtils::MakeMaker" : "6.62",
                      "Test::More" : "0.47"
                   }
                },
                "configure" : {
                   "requires" : {
-                     "ExtUtils::MakeMaker" : "6.42"
+                     "ExtUtils::MakeMaker" : "6.62"
                   }
                },
                "runtime" : {
@@ -54,22 +54,22 @@
                },
                "x_ChangeLog" : "http://fisheye2.atlassian.com/changelog/cpan/trunk/Class-Inspector"
             },
-            "version" : "1.25",
+            "version" : "1.27",
             "x_module_name" : "Class::Inspector"
          },
          "name" : "Class::Inspector",
-         "pathname" : "A/AD/ADAMK/Class-Inspector-1.25.tar.gz",
+         "pathname" : "A/AD/ADAMK/Class-Inspector-1.27.tar.gz",
          "provides" : {
             "Class::Inspector" : {
                "file" : "Class/Inspector.pm",
-               "version" : "1.25"
+               "version" : "1.27"
             },
             "Class::Inspector::Functions" : {
                "file" : "Class/Inspector/Functions.pm",
-               "version" : "1.25"
+               "version" : "1.27"
             }
          },
-         "version" : "1.25"
+         "version" : "1.27"
       },
       "Data::Dump" : {
          "dist" : "Data-Dump-1.21",
@@ -2652,7 +2652,7 @@
          "version" : "0.06"
       },
       "Test::SharedFork" : {
-         "dist" : "Test-SharedFork-0.19",
+         "dist" : "Test-SharedFork-0.20",
          "module" : "Test::SharedFork",
          "mymeta" : {
             "abstract" : "fork test",
@@ -2681,7 +2681,8 @@
                   "requires" : {
                      "App::Prove" : 0,
                      "ExtUtils::MakeMaker" : "6.42",
-                     "Test::Requires" : 0
+                     "Test::Requires" : 0,
+                     "Time::HiRes" : 0
                   }
                },
                "configure" : {
@@ -2702,14 +2703,14 @@
                   "http://dev.perl.org/licenses/"
                ]
             },
-            "version" : "0.19"
+            "version" : "0.20"
          },
          "name" : "Test::SharedFork",
-         "pathname" : "T/TO/TOKUHIROM/Test-SharedFork-0.19.tar.gz",
+         "pathname" : "T/TO/TOKUHIROM/Test-SharedFork-0.20.tar.gz",
          "provides" : {
             "Test::SharedFork" : {
                "file" : "Test/SharedFork.pm",
-               "version" : "0.19"
+               "version" : "0.20"
             },
             "Test::SharedFork::Array" : {
                "file" : "Test/SharedFork/Array.pm"
@@ -2721,10 +2722,10 @@
                "file" : "Test/SharedFork/Store.pm"
             }
          },
-         "version" : "0.19"
+         "version" : "0.20"
       },
       "Test::TCP" : {
-         "dist" : "Test-TCP-1.14",
+         "dist" : "Test-TCP-1.15",
          "module" : "Test::TCP",
          "mymeta" : {
             "abstract" : "testing TCP program",
@@ -2774,17 +2775,17 @@
                   "http://dev.perl.org/licenses/"
                ]
             },
-            "version" : "1.14"
+            "version" : "1.15"
          },
          "name" : "Test::TCP",
-         "pathname" : "T/TO/TOKUHIROM/Test-TCP-1.14.tar.gz",
+         "pathname" : "T/TO/TOKUHIROM/Test-TCP-1.15.tar.gz",
          "provides" : {
             "Test::TCP" : {
                "file" : "Test/TCP.pm",
-               "version" : "1.14"
+               "version" : "1.15"
             }
          },
-         "version" : "1.14"
+         "version" : "1.15"
       },
       "Test::Tester" : {
          "dist" : "Test-Tester-0.108",
