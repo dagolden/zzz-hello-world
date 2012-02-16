@@ -19,6 +19,8 @@ sub run_psgi {
 
 <p>Hello World. It is @{[scalar localtime]}</p>
 
+<p>My special word is: bizbazbuzz</p>
+
 <p>This is Perl $].  My \@INC is:</p>
 
 <ul>
