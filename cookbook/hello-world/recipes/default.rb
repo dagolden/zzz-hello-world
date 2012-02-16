@@ -24,7 +24,6 @@ package 'git'
 git node['hello-world']['deploy_dir'] do
   repository node['hello-world']['deploy_repo']
   reference node['hello-world']['deploy_tag']
-  notifies :create, "carton_app[hello-world]"
   notifies :restart, "carton_app[hello-world]"
 end
 
@@ -34,6 +33,10 @@ carton_app "hello-world" do
   cwd node['hello-world']['deploy_dir']
   user node['hello-world']['user']
   group node['hello-world']['group']
-  action [:create, :start]
 end
+
+carton_app "hello-world" do
+  action :start
+end
+
 
