@@ -19,12 +19,12 @@
 #
 
 # perlbrew to execute with (should be a legal perlbrew target)
-default['hello-world']['perl_version'] = 'perl-5.14.2'
+default['hello-world']['perl_version'] = 'perl-5.16.0'
 
 # Install directory, repo and tag
 default['hello-world']['deploy_dir'] = '/opt/hello-world'
-default['hello-world']['deploy_repo'] = 'git://github.com/dagolden/zzz-hello-world.git'
-default['hello-world']['deploy_tag'] = 'v1.0'
+default['hello-world']['deploy_repo'] = 'https://github.com/dagolden/zzz-hello-world.git'
+default['hello-world']['deploy_tag'] = 'master'
 
 # Service user/group/port
 default['hello-world']['user'] = "nobody"

@@ -5,4 +5,4 @@ description      "Installs/Configures hello-world"
 
 version          "0.1"
 
-depends          "perlbrew"
+depends          "carton"
