@@ -19,7 +19,7 @@
 
 include_recipe 'carton'
 
-package 'git'
+package 'git-core'
 
 git node['hello-world']['deploy_dir'] do
   repository node['hello-world']['deploy_repo']
